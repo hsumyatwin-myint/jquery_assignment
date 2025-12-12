@@ -30,27 +30,27 @@
         <div class="card shadow">
             <div class="card-body">
                 <h3 class="mb-4">Interactive Web Form</h3>
-                <!-- Username -->
+                
                 <div class="mb-3">
                     <label class="form-label">Username</label>
                     <input type="text" id="username" class="form-control">
                 </div>
-                <!-- Email -->      
+                 
                 <div class="mb-3">
                     <label class="form-label">Email</label>
                     <input type="email" id="email" class="form-control">
                 </div>
-                <!-- <Password> -->
+             
                 <div class="mb-3">
                     <label class="form-label">Password</label>
                     <input type="password" id="password" class="form-control">
                 </div>
-                <!-- <Confirm Password> -->
+                
                 <div class="mb-3">
                     <label class="form-label">Confirm Password</label>
                     <input type="password" id="confirmPassword" class="form-control">
                 </div>
-                <!-- Interesting Topics-->
+           
                 <div class="mb-3">
                     <label class="form-label">Interesting Topics</label>
                     <div class="form-check">
@@ -66,7 +66,7 @@
                         <label class="form-check-label" for="topic3">JavaScript</label>
                     </div>
             </div>
-            <!-- Gender -->
+           
             <div class="mb-3">
                 <label class="form-label fw-bold">Gender</label>
                 <select class="form-select" id="gender">
@@ -76,7 +76,7 @@
                     <option value="Other">Other</option>
                 </select>
             </div>
-            <!-- Submit Button -->
+           
             <button id="submitBtn" class="btn btn-primary">Submit</button>
             </div>
         </div>
@@ -87,20 +87,20 @@
             $('#submitBtn').click(function(event) {
                 event.preventDefault();
                 
-                // Clear previous error messages
+              
                 $('.error-text').remove();
                 $('input, select').removeClass('is-invalid');
 
                 let isValid = true;
 
-                // Username validation
+          
                 const username = $('#username').val().trim();
                 if (username === '') {
                     isValid = false;
                     $('#username').addClass('is-invalid');
                     $('#username').after('<div class="error-text">Username is required.</div>');
                 }
-                // Email validation
+               
                 const email = $('#email').val().trim();
                 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (email === '' || !emailPattern.test(email)) {
@@ -108,27 +108,27 @@
                     $('#email').addClass('is-invalid');
                     $('#email').after('<div class="error-text">Valid email is required.</div>');
                 }   
-                // Password validation
+          
                 const password = $('#password').val();
                 if (password.length < 6) {
                     isValid = false;
                     $('#password').addClass('is-invalid');
                     $('#password').after('<div class="error-text">Password must be at least 6 characters.</div>');
                 }
-                // Confirm Password validation
+                
                 const confirmPassword = $('#confirmPassword').val();
                 if (confirmPassword !== password) {
                     isValid = false;
                     $('#confirmPassword').addClass('is-invalid');
                     $('#confirmPassword').after('<div class="error-text">Passwords do not match.</div>');
                 }
-                // Interesting Topics validation
+             
                 if ($('input[type="checkbox"]:checked').length === 0) {
                     isValid = false;
                     $('input[type="checkbox"]').first().addClass('is-invalid');
                     $('input[type="checkbox"]').last().after('<div class="error-text">Select at least one topic.</div>');
                 }
-                // Gender validation
+             
                 const gender = $('#gender').val();
                 if (gender === '--') {
                     isValid = false;
